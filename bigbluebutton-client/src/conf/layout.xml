@@ -7,7 +7,7 @@
 		<window name="UsersWindow" width="0.2923611111111111" height="0.5305851063829787" x="0.7048611111111112" y="0" />
 	</layout>
 	<layout name="No chat">
-		<window name="ChatWindow" minimized="true" />
+		<window name="ChatWindow" hidden="true" />
 		<window name="VideoDock" hidden="true" />
 		<window name="PresentationWindow" width="0.7027777777777777" height="0.9986702127659575" x="0" y="0" />
 		<window name="UsersWindow" width="0.2923611111111111" height="0.9986702127659575" x="0.7048611111111112" y="0" />
