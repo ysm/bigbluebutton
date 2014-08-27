@@ -63,7 +63,7 @@
 			resolutions = "320x240,640x480,1280x720"
 			autoStart = "false"
 			skipCamSettingsCheck="false"
-			showButton = "true"
+			showButton = "false"
 			showCloseButton = "true"
 			publishWindowVisible = "true"
 			viewerWindowMaxed = "false"
