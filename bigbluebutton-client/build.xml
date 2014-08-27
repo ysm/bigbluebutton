@@ -433,8 +433,8 @@
 			<then>
 				<echo message="Copying config.xml for development environment"/>
 				<copy file="${BASE_DIR}/src/conf/config.xml" todir="${OUTPUT_DIR}/conf" /> 
-				<!-- echo message="Copying layout.xml for development environment"/>
-				<copy file="${BASE_DIR}/src/conf/layout.xml" todir="${OUTPUT_DIR}/conf" /--> 
+				<echo message="Copying layout.xml for development environment"/>
+				<copy file="${BASE_DIR}/src/conf/layout.xml" todir="${OUTPUT_DIR}/conf" /> 
 			</then>
 			<else>
 				<echo message="Need to copy config.xml.template for production environment"/>
