@@ -67,6 +67,8 @@
 			private var lockRolled:Boolean = false;
 			
 			private var options:UsersOptions;
+
+			private var lastVoiceJoinedState:Boolean = false;
 			
 			private function onCreationComplete():void{
 				lockBtn.enabled = muteBtn.enabled = kickUserBtn.enabled = moderator = UserManager.getInstance().getConference().amIModerator();
@@ -145,11 +147,32 @@
 				dispatchEvent(e);
 			}
 			
+			private function muteAndLock():void {
+				var e:VoiceConfEvent = new VoiceConfEvent(VoiceConfEvent.MUTE_USER);
+				e.userid = data.voiceUserid;
+				e.mute = true;
+				dispatchEvent(e);
+				var e:VoiceConfEvent = new VoiceConfEvent(VoiceConfEvent.LOCK_MUTE_USER);
+				e.userid = data.voiceUserid;
+				e.lock = true;
+				dispatchEvent(e);
+			}
+
 			private function updateButtons(voiceMuted:Boolean = false):void {
 				if (data != null) {
 					kickUserBtn.visible = !data.me && rolledOver && options.allowKickUser;
 					
-					
+					try {
+						if ((!data.me) && moderator){						
+							if (lastVoiceJoinedState != data.voiceJoined) {
+								lastVoiceJoinedState = data.voiceJoined;
+								muteAndLock();
+								return;
+							}
+							lastVoiceJoinedState = data.voiceJoined;
+						}
+					} catch (e:Error) { }
+
 					if (!data.voiceJoined) {
 						muteImg.visible = false;
 						muteImg.includeInLayout = false;

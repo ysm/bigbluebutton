@@ -32,6 +32,7 @@
 			enableRaiseHand="true"
 			enableSettingsButton="true"
 			baseTabIndex="301"
+			viewerMutedLockedByDefault="true"
 		/>
 
 		
@@ -57,7 +58,7 @@
 			uri="rtmp://HOST/video"
 			dependson = "UsersModule"
 			videoQuality = "100"
-			presenterShareOnly = "false"
+			presenterShareOnly = "true"
 			controlsForPresenter = "false"
 			resolutions = "320x240,640x480,1280x720"
 			autoStart = "false"

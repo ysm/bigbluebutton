@@ -40,6 +40,9 @@ package org.bigbluebutton.modules.users.model
 		[Bindable]
 		public var enableSettingsButton:Boolean = true;
 
+		[Bindable]
+		public var viewerMutedLockedByDefault:Boolean = false;
+
 		public function UsersOptions() {
 			var vxml:XML = BBB.getConfigForModule("UsersModule");
 			if (vxml != null) {
@@ -59,6 +62,9 @@ package org.bigbluebutton.modules.users.model
 			}
 			if (vxml.@enableSettingsButton != undefined) {
 				enableSettingsButton = (vxml.@enableSettingsButton.toString().toUpperCase() == "TRUE") ? true : false;
+			}			
+			if (vxml.@viewerMutedLockedByDefault != undefined) {
+				viewerMutedLockedByDefault = (vxml.@viewerMutedLockedByDefault.toString().toUpperCase() == "TRUE") ? true : false;
 			}
 		}
 
